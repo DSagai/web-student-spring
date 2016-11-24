@@ -1,4 +1,4 @@
-package my.traininig.site.model;
+package my.training.site.model;
 
 
 import java.util.List;

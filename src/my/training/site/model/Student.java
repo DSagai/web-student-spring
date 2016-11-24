@@ -1,4 +1,4 @@
-package my.traininig.site.model;
+package my.training.site.model;
 
 public class Student {
 	private int id;

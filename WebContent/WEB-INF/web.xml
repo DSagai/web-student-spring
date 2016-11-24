@@ -41,13 +41,13 @@
 	</jsp-config>
 
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener.class</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:my/traininig/site/spring-context.xml
+			classpath:my/training/site/spring-context.xml
 		</param-value>
 	</context-param>
 

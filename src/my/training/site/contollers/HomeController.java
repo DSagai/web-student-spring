@@ -1,4 +1,4 @@
-package my.traininig.site.contollers;
+package my.training.site.contollers;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import my.traininig.site.model.*;
+import my.training.site.model.*;
 
 @Controller
 public class HomeController {
