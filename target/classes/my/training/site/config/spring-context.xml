@@ -13,9 +13,12 @@
 
 	<context:property-placeholder
 		location="/WEB-INF/properties/jdbc.properties" />
+		
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:username="${jdbc.username}" p:password="${jdbc.password}"
-		p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}">
+		p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}"
+		p:maxActive="20" p:maxWait="10000"
+		p:maxIdle="5">
 	</bean>
 
 	<bean id="transactionManager"

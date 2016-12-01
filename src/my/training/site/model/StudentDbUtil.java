@@ -49,11 +49,8 @@ public class StudentDbUtil {
 
 	public boolean updateStudent(Student student){
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(student);
-		String sql = "update student "
-				+ "set first_name = :firstName "
-				+ "last_name = :lastName "
-				+ "email = :email"
-				+ "where id = :id";
+		String sql = "update student set first_name = :firstName, last_name = :lastName, email = :email where id = :id";
+		System.out.println(params);
 		return jdbc.update(sql, params) == 1;
 	}
 

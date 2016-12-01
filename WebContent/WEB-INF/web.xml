@@ -33,6 +33,11 @@
 		</init-param>
 	</filter>
 
+	<filter-mapping>
+		<filter-name>setCharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
@@ -47,7 +52,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:my/training/site/spring-context.xml
+			classpath:my/training/site/config/spring-context.xml
 		</param-value>
 	</context-param>
 
