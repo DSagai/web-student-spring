@@ -40,4 +40,9 @@ tr {
 	border-style:none;
 	text-align:left;	
 }
+
+p.error {
+	color:red;
+	font-weight: bold;
+}
 	
