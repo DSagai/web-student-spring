@@ -8,8 +8,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Student Tracker App</title>
-	<link type="text/css" rel="stylesheet" href="css/style.css">
-	<link type="text/css" rel="stylesheet" href="css/add-student-style.css">
+	<link type="text/css" rel="stylesheet" href="static/css/style.css">
+	<link type="text/css" rel="stylesheet" href="static/css/add-student-style.css">
 </head>
 
 <body>

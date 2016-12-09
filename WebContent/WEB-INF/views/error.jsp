@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 <title>Database error!</title>
-<link type="text/css" rel="stylesheet" href="css/add-student-style.css">
+<link type="text/css" rel="stylesheet" href="static/css/add-student-style.css">
 </head>
 <body>
 	<div class="error">

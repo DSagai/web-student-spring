@@ -45,6 +45,10 @@ tr {
 	color:red;
 }
 
+.valid {
+	color:green;
+}
+
 p.error {
 	color:red;
 	font-weight: bold;
