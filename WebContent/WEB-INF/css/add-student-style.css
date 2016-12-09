@@ -41,6 +41,10 @@ tr {
 	text-align:left;	
 }
 
+.error {
+	color:red;
+}
+
 p.error {
 	color:red;
 	font-weight: bold;

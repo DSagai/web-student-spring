@@ -1,4 +1,4 @@
-package my.training.site.model;
+package my.training.site.model.student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

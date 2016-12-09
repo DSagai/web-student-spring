@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import my.training.site.model.*;
+import my.training.site.model.student.Student;
+import my.training.site.model.student.StudentDbUtil;
 
 public class Test {
 

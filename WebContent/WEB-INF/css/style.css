@@ -20,7 +20,7 @@ th {
 
 tr {
 	border-top:1px solid gray;
-	text-align:center;	
+	text-align:left;	
 }
  
 tr:nth-child(even) {background: #FFFFFF}
@@ -45,3 +45,4 @@ tr:nth-child(odd) {background: #BBBBBB}
 	margin-bottom: 15px;
 	background: #cccccc;
 }
+

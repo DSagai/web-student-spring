@@ -63,6 +63,7 @@
 		</div>
 	
 	</div>
+	<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 
 </html>

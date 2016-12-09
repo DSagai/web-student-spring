@@ -20,8 +20,7 @@
 	</div>
 
 	<c:if test="${param.error != null }">
-		<p class="error">Login failed. Check your login and password.
-		</p>
+		<p class="error">Login failed. Check your login and password.</p>
 	</c:if>
 
 	<div id="container">
@@ -38,6 +37,10 @@
 					<td><input type='password' name='j_password' /></td>
 				</tr>
 				<tr>
+					<td>Remember me:</td>
+					<td><input type='checkbox' class = 'checkbox' name='_spring_security_remember_me' checked = 'checked' /></td>
+				</tr>
+				<tr>
 					<td />
 					<td colspan='2'><input name="submit" type="submit"
 						value="Login" /></td>
@@ -45,5 +48,8 @@
 			</table>
 		</form>
 	</div>
+
+	<a href="${pageContext.request.contextPath}/add-user-form">Create
+		new user</a>
 </body>
 </html>

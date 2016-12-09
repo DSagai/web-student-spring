@@ -3,18 +3,21 @@ package my.training.site.contollers;
 import java.util.*;
 
 import javax.inject.Named;
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import my.training.site.model.*;
+
+import my.training.site.model.student.*;
+
 
 @Controller
 public class HomeController {
@@ -45,12 +48,19 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/add-form")
-	public String addStudentForm(){
-		return "add-student-form";
+	public ModelAndView addStudentForm(){
+		ModelAndView mv = new ModelAndView("add-student-form");
+		Map<String,Object> model = mv.getModel();
+		Student student = new Student();
+		model.put("student", student);
+		return mv;
 	}
 	
 	@RequestMapping(value="/ADD", method=RequestMethod.POST)
-	public String addStudent(Model model,@ModelAttribute Student student){
+	public String addStudent(@Valid @ModelAttribute Student student, BindingResult result){
+		if (result.hasErrors()){
+			return "add-student-form";
+		}
 		studentDbUtil.addStudent(student);
 		return "redirect:/";
 	}
@@ -60,12 +70,16 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("update-student-form");
 		Map<String,Object> model = mv.getModel();
 		Student student = studentDbUtil.loadStudent(id);
-		model.put("STUDENT", student);
+		model.put("student", student);
 		return mv;
 	}
 	
 	@RequestMapping(value="/UPDATE", method=RequestMethod.POST)
-	public String updateStudent(Model model,@ModelAttribute Student student){
+	public String updateStudent(@Valid @ModelAttribute Student student, BindingResult result){
+		
+		if (result.hasErrors()){
+			return "update-student-form";
+		}
 		studentDbUtil.updateStudent(student);
 		return "redirect:/";
 	}
@@ -75,4 +89,5 @@ public class HomeController {
 		studentDbUtil.deleteStudent(id);
 		return "redirect:/";
 	}
+	
 }

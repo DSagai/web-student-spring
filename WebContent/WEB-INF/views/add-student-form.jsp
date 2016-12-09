@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!DOCTYPE html>
 
 
@@ -20,7 +21,7 @@
 	
 	<div id="container">
 		<h3>Add Student</h3>
-		<form action="${pageContext.request.contextPath}/ADD" method ="post">
+		<sf:form action="${pageContext.request.contextPath}/ADD" method ="post" commandName="student">
 			<table>
 				<tbody>
 					<tr>
@@ -28,7 +29,9 @@
 							First name:
 						</td>
 						<td>
-							<input type="text" name = "firstName" placeholder="enter Fist Name here" required/>
+							<sf:input type="text" name = "firstName" placeholder="enter Fist Name here" path="firstName"/>
+							<br/>
+								 <sf:errors path="firstName" cssClass="error"/>
 						</td>
 					</tr>
 					<tr>
@@ -36,7 +39,9 @@
 							Last name:
 						</td>
 						<td>
-							<input type="text" name = "lastName" placeholder="enter Last Name here" required/>
+							<sf:input type="text" name = "lastName" placeholder="enter Last Name here" path="lastName"/>
+							<br/>
+								 <sf:errors path="lastName" cssClass="error"/>
 						</td>
 					</tr>
 					<tr>
@@ -44,7 +49,9 @@
 							Email:
 						</td>
 						<td>
-							<input type="text" name = "email" placeholder="enter Email here" required/>
+							<sf:input type="text" name = "email" placeholder="enter Email here" path="email"/>
+							<br/>
+								 <sf:errors path="email" cssClass="error"/>
 						</td>
 					</tr>
 					<tr>
@@ -55,7 +62,7 @@
 					</tr>
 				</tbody>
 			</table>		
-		</form>
+		</sf:form>
 		
 		<div style="clear:both"></div>
 		<p>

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="accn1" authorities="admin"
-					password="qazwsx" />
-			</security:user-service>
-		</security:authentication-provider>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource" />
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username, password, enabled from sec_users where username = ?"
+				authorities-by-username-query="select r.role_name as authority, u.username from sec_roles r inner join sec_users u where u.username = ?" />
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
 
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/add-user-form"
+			access="permitAll" />
+		<security:intercept-url pattern="/ADD_USER"
+			access="permitAll" />
 		<security:intercept-url pattern="/login"
 			access="permitAll" />
 		<security:intercept-url pattern="/css/**"
@@ -38,6 +39,14 @@
 		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
+
+		<security:logout logout-url="/logout" />
+
+		<security:remember-me key="studentTraker" />
 	</security:http>
-	
+
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</bean>
 </beans>
