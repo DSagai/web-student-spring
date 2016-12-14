@@ -32,10 +32,13 @@ public class HomeController {
 	}
 
 
+
+	
 	@RequestMapping("/home")
 	public String getHome(){
 		return "home";
 	}
+	
 	
 	@RequestMapping("/")
 	public ModelAndView getStudentList(){

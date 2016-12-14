@@ -2,22 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta charset="utf-8">
-<title>Login Page</title>
-<link type="text/css" rel="stylesheet" href="static/css/style.css">
-<link type="text/css" rel="stylesheet" href="static/css/add-student-style.css">
-</head>
-<body onload='document.f.j_username.focus();'>
-
-	<div id="wrapper">
-		<div id="header">
-			<h3>Login with Username and Password</h3>
-		</div>
-	</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	document.f.j_username.focus();
+});
+</script>
 
 	<c:if test="${param.error != null }">
 		<p class="error">Login failed. Check your login and password.</p>
@@ -49,7 +38,4 @@
 		</form>
 	</div>
 
-	<a href="${pageContext.request.contextPath}/add-user-form">Create
-		new user</a>
-</body>
-</html>
+

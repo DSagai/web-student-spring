@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="home" template="/WEB-INF/templates/default.jsp">
+		<put-attribute name="includes" value=""></put-attribute>
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/titles/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/content.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/titles/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="error" template="/WEB-INF/templates/error.jsp">
+
+	</definition>
+
+	<definition name="login" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/login.jsp"></put-attribute>
+	</definition>
+
+	<definition name="add-user-form" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/add-user-form.jsp"></put-attribute>
+		<put-attribute name="includes"
+			value="/WEB-INF/titles/password-validation.jsp"></put-attribute>
+	</definition>
+
+	<definition name="list-students" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/list-students.jsp"></put-attribute>
+	</definition>
+
+	<definition name="add-student-form" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/add-student-form.jsp"></put-attribute>
+	</definition>
+
+	<definition name="update-student-form" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/titles/update-student-form.jsp"></put-attribute>
+	</definition>
+
+
+
+</tiles-definitions>

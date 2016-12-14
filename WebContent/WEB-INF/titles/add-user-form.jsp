@@ -4,64 +4,6 @@
 <!DOCTYPE html>
 
 
-<html>
-<head>
-<meta charset="utf-8">
-<title>Student Tracker App</title>
-<link type="text/css" rel="stylesheet" href="static/css/style.css">
-<link type="text/css" rel="stylesheet"
-	href="static/css/add-student-style.css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/script/jquery.js"></script>
-
-<script type="text/javascript">
-function onLoad(){
-	$("#password").keyup(checkPasswordMatch);
-	$("#confirmpass").keyup(checkPasswordMatch);
-	$("#user_form").submit(canSubmit);
-	
-}	
-
-function canSubmit(){
-	var password = $("#password").val();
-	var confirmpass = $("#confirmpass").val();
-	if (password == confirmpass){
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-function checkPasswordMatch(){
-	var password = $("#password").val();
-	var confirmpass = $("#confirmpass").val();
-	if (password.length > 3 || confirmpass.length > 3){
-		if (password == confirmpass){
-			$("#matchpass").text("Passwords match.");
-			$("#matchpass").addClass("valid");
-			$("#matchpass").removeClass("error");
-		}
-		else {
-			$("#matchpass").text("Passwords do not match.");
-			$("#matchpass").addClass("error");
-			$("#matchpass").removeClass("valid");
-		}
-	}
-	
-}
-
-$(document).ready(onLoad);
-</script>
-
-</head>
-
-<body>
-	<div id="wrapper">
-		<div id="header">
-			<h2>FooBar University</h2>
-		</div>
-	</div>
 
 	<div id="container">
 		<h3>Add Student</h3>
@@ -108,6 +50,3 @@ $(document).ready(onLoad);
 				page</a>
 		</p>
 	</div>
-</body>
-
-</html>
