@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 public class User {
 	private static String DEFAULT_AUTHORITY = "ROLE_USER";
-	private static boolean DEFAULT_STATUS = true;
+	private static boolean DEFAULT_STATUS = false;
 	
 	private int id;
 	
@@ -28,6 +28,7 @@ public class User {
 	
 	private String authority;
 	private boolean enabled;
+
 	
 	public User(){
 		this.authority = User.DEFAULT_AUTHORITY;

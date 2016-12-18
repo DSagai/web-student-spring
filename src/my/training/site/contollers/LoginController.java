@@ -38,7 +38,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/ADD_USER", method = RequestMethod.POST)
-	public String addUser(@Valid @ModelAttribute User user, BindingResult result) {
+	public String addUser(Model model,@Valid @ModelAttribute User user, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "add-user-form";
@@ -56,7 +56,15 @@ public class LoginController {
 		
 		
 		userDbUtil.addUser(user);
-		return "redirect:/login";
+		model.addAttribute("user", user);
+		return "user-created-form";
+	}
+	
+	@RequestMapping(value = "/activate", method = RequestMethod.GET)
+	public String activateUser(Model model,@RequestParam(value = "uid") String uid) {
+		String result = userDbUtil.activateUser(uid);
+		model.addAttribute("result", result);
+		return "user-activation-result";
 	}
 
 }

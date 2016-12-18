@@ -14,8 +14,9 @@
 			<th><sec:authorize access="!isAuthenticated()">
 					<a href="<c:url value='/add-user-form'/>">Add user</a>
 				</sec:authorize> <sec:authorize access="isAuthenticated()">
-					<a href="<c:url value='/logout'/>">Log
-						out</a>
+					<sec:authentication var="user" property="principal" />
+					${user.username}
+					<a href="<c:url value='/logout'/>">Log out</a>
 				</sec:authorize></th>
 		</tr>
 	</table>

@@ -8,7 +8,7 @@
 		<put-attribute name="content" value="/WEB-INF/titles/content.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/titles/footer.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="error" template="/WEB-INF/templates/error.jsp">
 
 	</definition>
@@ -32,14 +32,27 @@
 
 	<definition name="add-student-form" extends="home">
 		<put-attribute name="title" value="Student Spring"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/titles/add-student-form.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/titles/add-student-form.jsp"></put-attribute>
 	</definition>
 
 	<definition name="update-student-form" extends="home">
 		<put-attribute name="title" value="Student Spring"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/titles/update-student-form.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/titles/update-student-form.jsp"></put-attribute>
 	</definition>
 
+	<definition name="user-created-form" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/titles/user-created-form.jsp"></put-attribute>
+	</definition>
+
+	<definition name="user-activation-result" extends="home">
+		<put-attribute name="title" value="Student Spring"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/titles/user-activation-result.jsp"></put-attribute>
+	</definition>
 
 
 </tiles-definitions>

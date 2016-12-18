@@ -37,8 +37,8 @@ public class UserDbUtil {
 		params.addValue("email", user.getEmail());
 		params.addValue("enabled", user.isEnabled());
 		params.addValue("authority", user.getAuthority());
-		String sql = "insert into sec_users(username, password, email, enabled, role) "
-				+ "select :login, :password, :email, :enabled, id " + "from sec_roles "
+		String sql = "insert into sec_users(username, password, email, enabled, role, UID) "
+				+ "select :login, :password, :email, :enabled, id, UNHEX(REPLACE(UUID(), '-', '')) " + "from sec_roles "
 				+ "where role_name = :authority";
 		jdbc.update(sql, params);
 	}
@@ -57,4 +57,20 @@ public class UserDbUtil {
 		}
 		return "";
 	}
+
+	public String activateUser(String uid) {
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("uid", uid);
+		String sql = "update sec_users "
+				+ "set enabled = 1 "
+				+ "where enabled = 0 "
+				+ "and UID = X:uid";
+		if (jdbc.update(sql, params) == 1){
+			sql = "select username from sec_users where UID = X:uid ";
+			String userName = jdbc.queryForObject(sql, params, String.class);
+			return String.format("User %s succesfully activated.", userName);
+		}
+		return "Invalid activation request.";
+	}
+
 }
